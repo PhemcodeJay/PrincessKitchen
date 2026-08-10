@@ -378,7 +378,7 @@ const ADDRESS = "Nairobi, Kenya";
 const INSTA_URL = "https://www.instagram.com/princesskitchen123/";
 let currentProofBase64 = null;
 
-// Share
+// Share functions
 function shareToWhatsApp(itemId) {
   const item = menuData.find(i => i.id === itemId);
   if (!item) return;
@@ -387,8 +387,44 @@ function shareToWhatsApp(itemId) {
 }
 
 function shareToInstagram(itemId) {
-  // Open Instagram profile directly
-  window.open(INSTA_URL, '_blank');
+  const item = menuData.find(i => i.id === itemId);
+  if (!item) return;
+  
+  // Create share text
+  const shareText = `🍛 ${item.name}\n${item.desc}\n\n📍 ${ADDRESS}\n📞 +254742403806\nFollow us: ${INSTA_URL}`;
+  
+  // Try to use Web Share API first (mobile browsers)
+  if (navigator.share) {
+    navigator.share({
+      title: `${item.name} - Princess Kitchen`,
+      text: shareText,
+      url: INSTA_URL
+    }).catch(err => {
+      // If sharing fails or is cancelled, fallback to opening Instagram
+      if (err.name !== 'AbortError') {
+        fallbackInstagramShare(item);
+      }
+    });
+  } else {
+    // Fallback for desktop or browsers without Web Share API
+    fallbackInstagramShare(item);
+  }
+}
+
+function fallbackInstagramShare(item) {
+  // For Instagram, we can't directly share text via URL on desktop
+  // So we open the profile and show a prompt with the share text
+  if (window.confirm(`📱 Share this dish on Instagram?\n\n"${item.name}" - ${item.desc}\n\nClick OK to open Instagram and copy this text:`)) {
+    // Copy text to clipboard
+    const shareText = `${item.name}\n${item.desc}\n\n📍 ${ADDRESS}\n📞 +254742403806\nFollow us: ${INSTA_URL}`;
+    navigator.clipboard.writeText(shareText).then(() => {
+      alert('✅ Text copied to clipboard!\n\nOpen Instagram and paste it in your story or post.');
+      window.open(INSTA_URL, '_blank');
+    }).catch(() => {
+      // If clipboard fails, just open Instagram
+      window.open(INSTA_URL, '_blank');
+    });
+  }
 }
 
 // Render
