@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Princess Kitchen | Premium Nigerian Meals</title>
+  <title> Princess Kitchen | Premium Nigerian Meals </title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Favicon: inline SVG + fallback ICO -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b3d2e'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='50' fill='%23ffffff'%3E🍲%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZAAAAWxJREFUWEftljFqw0AQRZ9kS5AEFiRkcq00TtI4CQTSpE6dKp2qNDkBAkLQg3iBIiSUWqRTRLZkWd7M7I4sYUtIyI9fXv3Z3dmZfSEi/ocHcAsg7mIDYDXh81ZOfQGWAM4BdGWXz+f7z0wD4GcX4Dr58wCuD+AWyPp3UoLXyue9U7jEKUcAK1U+Jt5dAWw1j9/4igLMMsB2Pj0HwNPGYwqE9zI54gALACWAgpKzQut3fUYDBgBmAAYKGWAy5nB+1CdiwNsHwCOAmwjagq1+frv23HEAsAy4r3z7byP8Yp7z/zLWQRA6uwFHfAModtnQCGCqVot/C+DleHPN9fHl6D8BnJcQfLD6T8DiBuCgxr+4Rz0/btqYw7P9Cna0r7H4UO1CBLpXw+5j38fAHBZBRxBBpxFBxxFBJxFBpxFBpxFBpxFBpxFBpxFBpxFBBxFBhxFBRxFBRxFBpxFB5xFBhxFBRxFBRxFBVxFB//cHAAD//2/fB44pS7W3AAAAAElFTkSuQmCC">
   <style>
+    /* reset & base */
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     body { font-family: 'Inter', sans-serif; background: #f0faf4; color: #1a2e1a; scroll-behavior: smooth; }
     ::-webkit-scrollbar { width: 6px; }
@@ -15,207 +18,155 @@
     ::-webkit-scrollbar-thumb { background: #1a7a4c; border-radius: 12px; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
+    /* header */
     header { background: rgba(240, 250, 244, 0.98); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(26, 122, 76, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 20px; flex-wrap: wrap; }
-    .logo h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #1a7a4c, #0d4d2e); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.3px; }
-    .logo p { font-size: 0.7rem; color: #2d8a5a; font-weight: 600; letter-spacing: 0.3px; }
-    .cart-icon { background: #ffffff; padding: 10px 20px; border-radius: 48px; display: flex; gap: 10px; align-items: center; cursor: pointer; font-weight: 700; font-size: 0.9rem; border: 1px solid #b8e6cd; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 12px; flex-wrap: wrap; }
+    .logo h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #1a7a4c, #0d4d2e); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.3px; }
+    .logo p { font-size: 0.65rem; color: #2d8a5a; font-weight: 600; letter-spacing: 0.2px; }
+    .cart-icon { background: #ffffff; padding: 8px 16px; border-radius: 48px; display: flex; gap: 8px; align-items: center; cursor: pointer; font-weight: 700; font-size: 0.85rem; border: 1px solid #b8e6cd; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
     .cart-icon:hover { background: #e8f7ef; border-color: #1a7a4c; transform: scale(0.98); }
-    .cart-icon i { font-size: 1.3rem; color: #1a7a4c; }
-    .cart-count { background: #1a7a4c; color: white; border-radius: 40px; padding: 2px 10px; font-size: 0.75rem; font-weight: bold; min-width: 26px; text-align: center; }
+    .cart-icon i { font-size: 1.2rem; color: #1a7a4c; }
+    .cart-count { background: #1a7a4c; color: white; border-radius: 40px; padding: 2px 10px; font-size: 0.7rem; font-weight: bold; min-width: 24px; text-align: center; }
 
-    .hero { background: linear-gradient(120deg, #d8f0e2 0%, #eafaf1 100%); border-radius: 32px; margin: 28px 0 32px; padding: 40px 28px; text-align: center; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08); }
-    .hero h2 { font-size: 2.2rem; font-weight: 800; color: #0d4d2e; }
-    .address-badge { background: rgba(26, 122, 76, 0.15); padding: 12px 22px; border-radius: 60px; margin: 16px auto 0; display: inline-block; font-size: 0.9rem; font-weight: 600; color: #1a7a4c; backdrop-filter: blur(2px); }
-    .live-badge { background: linear-gradient(90deg, #25D366, #1a7a4c); color: white; padding: 8px 22px; border-radius: 40px; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; box-shadow: 0 4px 12px rgba(37,211,102,0.2); }
+    /* hero */
+    .hero { background: linear-gradient(120deg, #d8f0e2 0%, #eafaf1 100%); border-radius: 28px; margin: 20px 0 24px; padding: 32px 20px; text-align: center; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08); }
+    .hero h2 { font-size: 1.8rem; font-weight: 800; color: #0d4d2e; }
+    .address-badge { background: rgba(26, 122, 76, 0.15); padding: 10px 18px; border-radius: 60px; margin: 12px auto 0; display: inline-block; font-size: 0.85rem; font-weight: 600; color: #1a7a4c; backdrop-filter: blur(2px); }
 
-    .categories { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; margin: 16px 0 24px; padding-bottom: 12px; scrollbar-width: thin; }
-    .cat-btn { background: #ffffff; border: 1px solid #c8ead8; font-weight: 700; font-size: 0.85rem; padding: 10px 24px; border-radius: 60px; cursor: pointer; white-space: nowrap; transition: 0.2s; color: #2d5a3a; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+    /* categories */
+    .categories { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 10px; margin: 12px 0 20px; padding-bottom: 10px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .cat-btn { background: #ffffff; border: 1px solid #c8ead8; font-weight: 700; font-size: 0.8rem; padding: 8px 18px; border-radius: 60px; cursor: pointer; white-space: nowrap; transition: 0.2s; color: #2d5a3a; box-shadow: 0 1px 2px rgba(0,0,0,0.02); flex-shrink: 0; }
     .cat-btn.active { background: #1a7a4c; color: white; border-color: #1a7a4c; box-shadow: 0 8px 18px rgba(26,122,76,0.2); }
 
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; margin: 32px 0 70px; }
-    .menu-card { background: white; border-radius: 28px; overflow: hidden; transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); box-shadow: 0 8px 20px rgba(0,0,0,0.04); border: 1px solid #d4e8dc; display: flex; flex-direction: column; }
-    .menu-card:hover { transform: translateY(-6px); box-shadow: 0 24px 36px -12px rgba(0,0,0,0.15); border-color: #a8d8bc; }
-    .menu-img { width: 100%; height: 190px; object-fit: cover; background: linear-gradient(135deg, #d8f0e2, #c5e8d4); transition: transform 0.4s ease; display: block; }
+    /* menu grid */
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin: 24px 0 60px; }
+    .menu-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); box-shadow: 0 8px 20px rgba(0,0,0,0.04); border: 1px solid #d4e8dc; display: flex; flex-direction: column; }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12); border-color: #a8d8bc; }
+    .menu-img { width: 100%; height: 170px; object-fit: cover; background: linear-gradient(135deg, #d8f0e2, #c5e8d4); transition: transform 0.4s ease; display: block; }
     .menu-card:hover .menu-img { transform: scale(1.02); }
-    .card-content { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; }
-    .item-name { font-size: 1.1rem; font-weight: 800; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-    .item-price { display: none; }  /* prices hidden */
-    .item-desc { font-size: 0.75rem; color: #4a6b55; line-height: 1.4; }
-    .add-btn { background: #e8f7ef; border: none; padding: 12px 0; border-radius: 44px; font-weight: 700; font-size: 0.85rem; color: #1a7a4c; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 6px; transition: 0.2s; }
+    .card-content { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+    .item-name { font-size: 1rem; font-weight: 800; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+    .item-desc { font-size: 0.7rem; color: #4a6b55; line-height: 1.4; }
+    .add-btn { background: #e8f7ef; border: none; padding: 10px 0; border-radius: 44px; font-weight: 700; font-size: 0.8rem; color: #1a7a4c; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px; transition: 0.2s; }
     .add-btn:active { background: #c5e8d4; transform: scale(0.97); }
-    
-    .share-buttons { display: flex; gap: 6px; margin-top: 8px; justify-content: center; flex-wrap: wrap; }
-    .share-btn { width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    .share-buttons { display: flex; gap: 6px; margin-top: 6px; justify-content: center; flex-wrap: wrap; }
+    .share-btn { width: 30px; height: 30px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
     .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     .share-wa { background: #25D366; }
 
-    .videos-section { background: white; border-radius: 32px; padding: 32px 28px; margin: 32px 0 48px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
-    .videos-carousel { position: relative; overflow: hidden; border-radius: 24px; height: 380px; background: #1a120b; margin-bottom: 20px; }
-    .video-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.55s ease; display: none; align-items: center; justify-content: center; }
-    .video-slide.active { opacity: 1; display: flex; }
-    .video-slide iframe { width: 100%; height: 100%; border: none; border-radius: 24px; pointer-events: auto; }
-    .carousel-controls { display: flex; justify-content: center; gap: 18px; margin: 20px 0 10px; }
-    .carousel-btn { background: #1a7a4c; color: white; border: none; width: 48px; height: 48px; border-radius: 60px; font-size: 1.5rem; cursor: pointer; transition: 0.2s; box-shadow: 0 6px 14px rgba(26,122,76,0.25); }
-    .carousel-btn:hover { background: #0d4d2e; transform: scale(1.05); }
-    
+    /* featured dishes slider */
+    .videos-section { background: white; border-radius: 28px; padding: 24px 16px; margin: 24px 0 40px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+    .videos-carousel { position: relative; overflow: hidden; border-radius: 20px; height: 340px; background: #1a120b; margin-bottom: 16px; }
     .menu-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease; display: none; align-items: center; justify-content: center; background: linear-gradient(135deg, #d8f0e2, #c5e8d4); }
     .menu-slide.active { opacity: 1; display: flex; }
-    .menu-slide-content { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: stretch; padding: 16px; max-width: 1200px; }
-    .menu-slide-item { flex: 0 1 calc(25% - 12px); min-width: 200px; max-width: 280px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
-    .menu-slide-img { width: 100%; height: 140px; object-fit: cover; display: block; }
-    .menu-slide-info { padding: 12px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
-    .menu-slide-name { font-size: 1rem; font-weight: 800; color: #0d4d2e; margin: 0; }
-    .menu-slide-price { display: none; }  /* prices hidden */
-    .menu-slide-desc { font-size: 0.8rem; color: #4a6b55; margin: 0; line-height: 1.3; flex: 1; }
-    .menu-slide-btn { background: #1a7a4c; color: white; border: none; padding: 8px 16px; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.85rem; box-shadow: 0 3px 10px rgba(26,122,76,0.25); margin-top: auto; }
+    .menu-slide-content { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: stretch; padding: 12px; max-width: 1200px; width: 100%; }
+    .menu-slide-item { flex: 0 1 calc(25% - 10px); min-width: 150px; max-width: 220px; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+    .menu-slide-img { width: 100%; height: 110px; object-fit: cover; display: block; }
+    .menu-slide-info { padding: 10px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .menu-slide-name { font-size: 0.85rem; font-weight: 800; color: #0d4d2e; margin: 0; }
+    .menu-slide-desc { font-size: 0.7rem; color: #4a6b55; margin: 0; line-height: 1.3; flex: 1; }
+    .menu-slide-btn { background: #1a7a4c; color: white; border: none; padding: 6px 12px; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.75rem; box-shadow: 0 3px 10px rgba(26,122,76,0.25); margin-top: auto; }
     .menu-slide-btn:hover { background: #0d4d2e; transform: scale(1.05); }
+    .carousel-controls { display: flex; justify-content: center; gap: 14px; margin: 12px 0 4px; }
+    .carousel-btn { background: #1a7a4c; color: white; border: none; width: 42px; height: 42px; border-radius: 60px; font-size: 1.2rem; cursor: pointer; transition: 0.2s; box-shadow: 0 6px 14px rgba(26,122,76,0.25); }
 
-    .map-premium { background: white; border-radius: 32px; padding: 24px 24px 32px; margin: 20px 0 48px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
-    .map-container { border-radius: 24px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 20px 0 18px; }
-    .map-container iframe { width: 100%; height: 380px; display: block; }
+    /* map */
+    .map-premium { background: white; border-radius: 28px; padding: 20px 16px 24px; margin: 16px 0 40px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+    .map-container { border-radius: 20px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 16px 0 14px; }
+    .map-container iframe { width: 100%; height: 280px; display: block; }
 
+    /* cart overlay */
     .cart-overlay { position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); z-index: 200; display: none; justify-content: flex-end; }
-    .cart-sidebar { background: #fffcf9; width: 92%; max-width: 420px; height: 100%; overflow-y: auto; padding: 28px 22px; box-shadow: -8px 0 40px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
-    .cart-sidebar h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 28px; border-left: 5px solid #1a7a4c; padding-left: 18px; }
-    .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #c8ead8; padding: 14px 0; }
-    .cart-total { font-weight: 800; font-size: 1.5rem; margin: 24px 0; text-align: right; border-top: 2px dashed #a8d8bc; padding-top: 20px; }
-
-    .checkout-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
-    .checkout-btn, .pay-now-btn, .close-cart {
-      border: none; padding: 16px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; width: 100%; transition: all 0.2s;
-    }
+    .cart-sidebar { background: #fffcf9; width: 92%; max-width: 400px; height: 100%; overflow-y: auto; padding: 24px 18px; box-shadow: -8px 0 40px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+    .cart-sidebar h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; border-left: 5px solid #1a7a4c; padding-left: 16px; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #c8ead8; padding: 12px 0; }
+    .cart-total { font-weight: 800; font-size: 1.3rem; margin: 20px 0; text-align: right; border-top: 2px dashed #a8d8bc; padding-top: 16px; }
+    .checkout-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .checkout-btn, .pay-now-btn, .close-cart { border: none; padding: 14px; border-radius: 60px; font-weight: 700; font-size: 0.95rem; cursor: pointer; width: 100%; transition: all 0.2s; }
     .checkout-btn { background: #1a7a4c; color: white; }
-    .pay-now-btn { background: linear-gradient(135deg, #25D366, #1a7a4c); color: white; font-size: 1.05rem; }
-    .close-cart { background: #d4e8dc; color: #2d5a3a; }
+    .pay-now-btn { background: linear-gradient(135deg, #25D366, #1a7a4c); color: white; }
 
-    .payment-modal {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center; z-index: 300;
-    }
-    .modal-content {
-      background: white; border-radius: 28px; width: 92%; max-width: 480px;
-      max-height: 92vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-    .modal-header {
-      padding: 24px 24px 16px; border-bottom: 1px solid #d4e8dc;
-      display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: white; z-index: 10;
-    }
-    .modal-header h3 { color: #1a7a4c; font-size: 1.5rem; font-weight: 800; }
-    .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #4a6b55; }
-
+    /* payment modal */
+    .payment-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 300; }
+    .modal-content { background: white; border-radius: 24px; width: 94%; max-width: 460px; max-height: 92vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .modal-header { padding: 20px 20px 14px; border-bottom: 1px solid #d4e8dc; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: white; z-index: 10; }
+    .modal-header h3 { color: #1a7a4c; font-size: 1.3rem; font-weight: 800; }
+    .close-modal { background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #4a6b55; }
     .payment-tabs { display: flex; border-bottom: 1px solid #d4e8dc; }
-    .tab-btn {
-      flex: 1; padding: 16px; background: none; border: none;
-      font-weight: 700; font-size: 1rem; cursor: pointer;
-    }
+    .tab-btn { flex: 1; padding: 14px; background: none; border: none; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
     .tab-btn.active { border-bottom: 4px solid #1a7a4c; color: #1a7a4c; }
-
-    .tab-content { padding: 24px; display: none; }
+    .tab-content { padding: 20px; display: none; }
     .tab-content.active { display: block; }
-
-    .payment-input {
-      width: 100%; padding: 14px 16px; border: 2px solid #a8d8bc;
-      border-radius: 16px; font-size: 1.1rem; margin: 16px 0; text-align: center;
-    }
-
-    .file-upload-area {
-      border: 2px dashed #1a7a4c; border-radius: 16px; padding: 24px;
-      text-align: center; margin: 20px 0; cursor: pointer; transition: all 0.2s;
-    }
+    .payment-input { width: 100%; padding: 12px 14px; border: 2px solid #a8d8bc; border-radius: 16px; font-size: 1rem; margin: 12px 0; text-align: center; }
+    .file-upload-area { border: 2px dashed #1a7a4c; border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; cursor: pointer; transition: all 0.2s; }
     .file-upload-area:hover { background: #e8f7ef; }
     .file-upload-area.dragover { background: #c5e8d4; border-color: #0d4d2e; }
-    .uploaded-preview { margin-top: 12px; max-width: 100%; border-radius: 12px; border: 1px solid #ddd; }
+    .uploaded-preview { margin-top: 10px; max-width: 100%; border-radius: 12px; border: 1px solid #ddd; max-height: 140px; }
+    .send-whatsapp-btn { background: #25D366; color: white; border: none; padding: 14px; border-radius: 60px; font-size: 1rem; font-weight: 800; width: 100%; cursor: pointer; margin-top: 10px; box-shadow: 0 8px 20px rgba(26,122,76,0.3); }
 
-    .pay-now-btn-full, .send-whatsapp-btn {
-      background: linear-gradient(135deg, #1a7a4c, #0d4d2e);
-      color: white; border: none; padding: 16px; border-radius: 60px;
-      font-size: 1.05rem; font-weight: 800; width: 100%; cursor: pointer;
-      margin-top: 12px; box-shadow: 0 8px 20px rgba(26,122,76,0.3);
-    }
-    .send-whatsapp-btn { background: #25D366; }
-    .send-whatsapp-btn:hover { background: #128C7E; }
+    /* thank you modal */
+    .thankyou-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 400; }
+    .thankyou-content { background: white; border-radius: 24px; width: 94%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); padding: 32px 24px; text-align: center; }
+    .thankyou-icon { font-size: 3.5rem; margin-bottom: 12px; }
+    .thankyou-content h2 { color: #25D366; font-size: 1.8rem; margin-bottom: 12px; }
+    .order-summary { background: #e8f7ef; border-radius: 16px; padding: 16px; margin: 16px 0; text-align: left; }
+    .order-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #a8d8bc; }
+    .order-total { font-weight: 800; font-size: 1.1rem; color: #1a7a4c; margin-top: 10px; padding-top: 10px; border-top: 2px solid #1a7a4c; }
+    .close-thankyou { background: #25D366; color: white; border: none; padding: 12px 28px; border-radius: 60px; font-weight: 700; font-size: 0.95rem; cursor: pointer; margin-top: 16px; box-shadow: 0 6px 18px rgba(37,211,102,0.3); }
 
-    .floating-socials { 
-      position: fixed; bottom: 26px; right: 24px; display: flex; 
-      flex-direction: column; gap: 14px; z-index: 150; 
-    }
-    .floating-socials a { 
-      width: 56px; height: 56px; border-radius: 50%; display: flex; 
-      align-items: center; justify-content: center; font-size: 1.8rem; 
-      color: white; text-decoration: none; transition: all 0.25s ease; 
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25); 
-    }
+    /* floating socials */
+    .floating-socials { position: fixed; bottom: 20px; right: 16px; display: flex; flex-direction: column; gap: 12px; z-index: 150; }
+    .floating-socials a { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white; text-decoration: none; transition: all 0.25s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
     .float-wa { background: #25D366; }
 
-    .contact-strip { background: #0d2e1a; color: #c5e8d4; padding: 24px; text-align: center; border-radius: 32px 32px 0 0; }
-    .social-icons { display: flex; gap: 18px; align-items: center; }
-    .social-icons a { color: #1a7a4c; font-size: 1.5rem; transition: 0.2s; }
+    /* contact strip */
+    .contact-strip { background: #0d2e1a; color: #c5e8d4; padding: 20px 16px; text-align: center; border-radius: 28px 28px 0 0; font-size: 0.85rem; }
+    .social-icons { display: flex; gap: 16px; align-items: center; justify-content: center; }
+    .social-icons a { color: #1a7a4c; font-size: 1.4rem; transition: 0.2s; }
     .social-icons a:hover { color: #2d8a5a; transform: translateY(-3px); }
 
-    .thankyou-modal {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center; z-index: 400;
-    }
-    .thankyou-content {
-      background: white; border-radius: 28px; width: 92%; max-width: 500px;
-      max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      padding: 40px 30px; text-align: center;
-    }
-    .thankyou-icon { font-size: 4rem; margin-bottom: 16px; }
-    .thankyou-content h2 { color: #25D366; font-size: 2rem; margin-bottom: 16px; }
-    .thankyou-content p { color: #666; margin-bottom: 12px; line-height: 1.6; }
-    .order-summary {
-      background: #e8f7ef; border-radius: 16px; padding: 20px;
-      margin: 20px 0; text-align: left;
-    }
-    .order-summary h4 { color: #1a7a4c; margin-bottom: 12px; }
-    .order-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #a8d8bc; }
-    .order-total { font-weight: 800; font-size: 1.2rem; color: #1a7a4c; margin-top: 12px; padding-top: 12px; border-top: 2px solid #1a7a4c; }
-    .close-thankyou {
-      background: #25D366; color: white; border: none; padding: 14px 32px;
-      border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer;
-      margin-top: 20px; box-shadow: 0 6px 18px rgba(37,211,102,0.3);
-    }
-
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(100px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .pagination {
-      display: flex; justify-content: center; align-items: center;
-      gap: 12px; margin: 32px 0 70px; flex-wrap: wrap;
-    }
-    .page-btn {
-      background: white; border: 2px solid #c8ead8; padding: 10px 18px;
-      border-radius: 60px; cursor: pointer; font-weight: 700; font-size: 0.9rem;
-      color: #2d5a3a; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    }
-    .page-btn:hover { background: #e8f7ef; border-color: #1a7a4c; }
+    /* pagination */
+    .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 24px 0 60px; flex-wrap: wrap; }
+    .page-btn { background: white; border: 2px solid #c8ead8; padding: 8px 14px; border-radius: 60px; cursor: pointer; font-weight: 700; font-size: 0.85rem; color: #2d5a3a; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
     .page-btn.active { background: #1a7a4c; color: white; border-color: #1a7a4c; }
     .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .page-info { color: #4a6b55; font-weight: 600; font-size: 0.9rem; }
 
+    /* mobile tweaks */
     @media (max-width: 680px) {
-      .container { padding: 0 18px; }
-      .hero h2 { font-size: 1.6rem; }
-      .menu-grid { gap: 18px; }
-      .floating-socials a { width: 48px; height: 48px; font-size: 1.5rem; }
+      .container { padding: 0 14px; }
+      .hero h2 { font-size: 1.4rem; }
+      .hero { padding: 24px 16px; margin: 12px 0 16px; }
+      .menu-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+      .menu-img { height: 140px; }
+      .videos-carousel { height: 280px; }
+      .menu-slide-item { min-width: 130px; max-width: 180px; }
+      .menu-slide-img { height: 90px; }
+      .cart-sidebar { width: 100%; max-width: 100%; border-radius: 0; }
+      .floating-socials a { width: 44px; height: 44px; font-size: 1.3rem; bottom: 16px; right: 12px; }
+      .map-container iframe { height: 200px; }
+      .logo h1 { font-size: 1.2rem; }
+      .logo p { font-size: 0.55rem; }
+      .cart-icon { padding: 6px 12px; font-size: 0.75rem; gap: 4px; }
+      .cart-icon i { font-size: 1rem; }
+      .cat-btn { font-size: 0.7rem; padding: 6px 14px; }
+      .modal-content { width: 96%; }
     }
-    .empty-cart { text-align: center; padding: 40px; }
+
+    @media (max-width: 480px) {
+      .menu-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .menu-img { height: 120px; }
+      .card-content { padding: 12px; }
+      .item-name { font-size: 0.9rem; }
+      .videos-carousel { height: 240px; }
+      .menu-slide-item { min-width: 110px; max-width: 150px; }
+      .menu-slide-img { height: 70px; }
+      .menu-slide-name { font-size: 0.75rem; }
+    }
+
+    .empty-cart { text-align: center; padding: 30px 0; }
     .cart-item { animation: slideIn 0.3s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-    
     #loadingOverlay { display: none; }
   </style>
 </head>
@@ -225,12 +176,12 @@
   <div class="container">
     <div class="nav-bar">
       <div class="logo">
-        <h1>Princess Kitchen</h1>
-        <p>Premium Nigerian Meals • Nairobi, Kenya</p>
+        <h1>🍲 Princess Kitchen</h1>
+        <p>Premium Nigerian Meals • Nairobi</p>
       </div>
-      <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
         <div class="social-icons">
-            <a href="https://wa.me/254742403806" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/254742403806" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="cart-icon" id="cartIconBtn">
           <i class="fas fa-shopping-basket"></i>
@@ -245,24 +196,23 @@
 <main class="container">
   <div class="hero">
     <h2>🔥 Premium Nigerian Meals 🔥</h2>
-    <div class="address-badge"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya, Nairobi</div>
-    <div class="address-badge" style="margin-top: 8px;"><i class="fas fa-phone-alt"></i> Order / Delivery: +254742403806 for any inquiries</div>
+    <div class="address-badge"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+    <div class="address-badge" style="margin-top:6px;"><i class="fas fa-phone-alt"></i> +254742403806</div>
   </div>
 
   <div class="categories" id="categoryTabs">
-    <button class="cat-btn active" data-cat="all">All Menu</button>
+    <button class="cat-btn active" data-cat="all">All</button>
     <button class="cat-btn" data-cat="breakfast">Breakfast</button>
     <button class="cat-btn" data-cat="proteins">Proteins</button>
     <button class="cat-btn" data-cat="soups">Soups</button>
-    <button class="cat-btn" data-cat="rice">Rice & Pasta</button>
+    <button class="cat-btn" data-cat="rice">Rice</button>
     <button class="cat-btn" data-cat="stew">Stews</button>
     <button class="cat-btn" data-cat="swallows">Swallows</button>
-    <button class="cat-btn" data-cat="sauce">Sauces</button>
   </div>
 
   <div class="videos-section">
-    <h3 style="text-align:center; color:#1a7a4c; font-size:1.6rem; margin-bottom:8px;">🍽️ Featured Dishes</h3>
-    <p style="text-align:center; font-size:0.95rem; color:#4a6b55; margin-bottom:24px;">Explore our delicious menu items</p>
+    <h3 style="text-align:center; color:#1a7a4c; font-size:1.3rem; margin-bottom:4px;">🍽️ Featured Dishes</h3>
+    <p style="text-align:center; font-size:0.85rem; color:#4a6b55; margin-bottom:16px;">Explore our delicious menu</p>
     <div class="videos-carousel" id="menuSlideshow">
       <div class="menu-slide active" id="menuSlideContent"></div>
     </div>
@@ -275,32 +225,30 @@
 
   <div id="menuGrid" class="menu-grid"></div>
 
-  <!-- PAGINATION -->
   <div class="pagination" id="pagination"></div>
 
-  <!-- LOADING OVERLAY -->
   <div id="loadingOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.9); z-index:250; align-items:center; justify-content:center; flex-direction:column;">
-    <i class="fas fa-spinner fa-spin" style="font-size:3rem; color:#1a7a4c; margin-bottom:16px;"></i>
+    <i class="fas fa-spinner fa-spin" style="font-size:2.5rem; color:#1a7a4c; margin-bottom:12px;"></i>
     <p style="color:#1a7a4c; font-weight:700;">Loading menu...</p>
   </div>
 </main>
 
 <div class="contact-strip">
-  <p><i class="fas fa-location-dot"></i> Nairobi, Kenya, Nairobi</p>
-  <p><i class="fab fa-whatsapp"></i> WhatsApp Orders: +254742403806 for any inquiries &nbsp;|&nbsp; <i class="fas fa-clock"></i> Open 24hrs</p>
-  <div class="social-icons" style="justify-content:center; margin-top:16px;">
+  <p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p>
+  <p><i class="fab fa-whatsapp"></i> Order: +254742403806 &nbsp;|&nbsp; <i class="fas fa-clock"></i> 24hrs</p>
+  <div class="social-icons" style="margin-top:12px;">
     <a href="https://wa.me/254742403806" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </div>
 
 <div class="map-premium">
-  <h3 style="text-align:center; color:#1a7a4c; font-size:1.5rem; margin-bottom:8px;">📍 Our Location</h3>
-  <div class="map-container"><iframe width="100%" height="380" style="border:0;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8!2d36.785!3d-1.295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a6b3f4e2f4b%3A0x9b4f5a2e1c6d7e8f!2sTsavo%20Skywalk%2C%20Wanyee%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1740000000000"></iframe></div>
+  <h3 style="text-align:center; color:#1a7a4c; font-size:1.2rem; margin-bottom:4px;">📍 Our Location</h3>
+  <div class="map-container"><iframe width="100%" height="280" style="border:0;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8!2d36.785!3d-1.295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a6b3f4e2f4b%3A0x9b4f5a2e1c6d7e8f!2sTsavo%20Skywalk%2C%20Wanyee%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1740000000000"></iframe></div>
 </div>
 
-<!-- FLOATING SOCIAL ICONS -->
+<!-- FLOATING SOCIAL -->
 <div class="floating-socials">
-  <a href="https://wa.me/254742403806" id="whatsappFloatLink" class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/254742403806" class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <!-- CART OVERLAY -->
@@ -309,7 +257,6 @@
     <h3><i class="fas fa-utensils"></i> Your Order</h3>
     <div id="cartItemsList"></div>
     <div id="cartTotalAmount" class="cart-total">Total: 0 Ksh</div>
-    
     <div class="checkout-actions">
       <button id="checkoutWhatsAppBtn" class="checkout-btn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
       <button id="payNowBtn" class="pay-now-btn"><i class="fas fa-credit-card"></i> Pay Now</button>
@@ -318,42 +265,35 @@
   </div>
 </div>
 
-<!-- PAYMENT MODAL WITH FILE UPLOAD -->
+<!-- PAYMENT MODAL -->
 <div id="paymentModal" class="payment-modal">
   <div class="modal-content">
     <div class="modal-header">
-      <h3>💳 Secure Payment + Proof</h3>
+      <h3>💳 Payment + Proof</h3>
       <button class="close-modal" id="closePaymentModal">&times;</button>
     </div>
-
     <div class="payment-tabs">
       <button class="tab-btn active" data-tab="mpesa">M-Pesa</button>
     </div>
-
-    <!-- M-Pesa Tab -->
     <div id="mpesa-tab" class="tab-content active">
-      <div style="text-align:center; margin:15px 0;">
-        <span style="font-size:3.5rem;">📱</span>
+      <div style="text-align:center; margin:10px 0;">
+        <span style="font-size:3rem;">📱</span>
         <h3 style="color:#25D366;">M-Pesa Payment</h3>
-        <p style="color:#666; font-size:0.9rem; margin-top:8px;"><strong> Send Money: 0706606860</strong></p>
+        <p style="color:#666; font-size:0.85rem; margin-top:6px;"><strong>Send to: 0742403806</strong></p>
       </div>
       <input type="tel" id="mpesaPhone" class="payment-input" placeholder="+2547XXXXXXXX" maxlength="13" value="+254742403806">
-
-      <div style="background:#e8f7ef; padding:16px; border-radius:16px; margin:20px 0; text-align:center;">
-        <strong>Total to Pay:</strong> <span id="modalTotalAmount">0</span> Ksh
+      <div style="background:#e8f7ef; padding:14px; border-radius:16px; margin:14px 0; text-align:center;">
+        <strong>Total:</strong> <span id="modalTotalAmount">0</span> Ksh
       </div>
-
       <div id="uploadAreaMpesa" class="file-upload-area">
-        <i class="fas fa-cloud-upload-alt" style="font-size:2.5rem; color:#1a7a4c; margin-bottom:8px;"></i>
-        <p><strong>Upload M-Pesa Receipt / Screenshot</strong></p>
-        <p style="font-size:0.85rem; color:#666;">PNG, JPG or JPEG, PDF (max 5MB)</p>
+        <i class="fas fa-cloud-upload-alt" style="font-size:2rem; color:#1a7a4c; margin-bottom:6px;"></i>
+        <p><strong>Upload M-Pesa Receipt</strong></p>
+        <p style="font-size:0.75rem; color:#666;">PNG, JPG, PDF (max 5MB)</p>
         <input type="file" id="paymentProofMpesa" accept="image/*" style="display:none;">
       </div>
       <div id="previewMpesa"></div>
-
-      <button id="sendMpesaToWhatsApp" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order + Payment Proof to WhatsApp</button>
+      <button id="sendMpesaToWhatsApp" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order + Proof</button>
     </div>
-
   </div>
 </div>
 
@@ -361,68 +301,65 @@
 <div id="thankYouModal" class="thankyou-modal">
   <div class="thankyou-content">
     <div class="thankyou-icon">🎉</div>
-    <h2>Thank You for Your Order!</h2>
-    <p>Your order has been received and is being prepared.</p>
-    
+    <h2>Thank You!</h2>
+    <p>Your order is being prepared.</p>
     <div class="order-summary" id="orderSummary"></div>
-
-    <p style="margin-top:20px; color:#666; font-size:0.9rem;">
-      <i class="fas fa-clock"></i> <strong>Estimated delivery:</strong> 30-45 minutes<br>
-      <i class="fas fa-phone"></i> <strong>Contact:</strong> +254742403806 for any inquiries
+    <p style="margin-top:16px; color:#666; font-size:0.85rem;">
+      <i class="fas fa-clock"></i> <strong>Est. delivery:</strong> 30-45 min<br>
+      <i class="fas fa-phone"></i> <strong>Contact:</strong> +254742403806
     </p>
-
     <button class="close-thankyou" onclick="closeThankYouModal()">Continue Browsing</button>
   </div>
 </div>
 
 <script>
-// ==================== MENU DATA (prices kept in data for logic but not displayed) ====================
+// ==================== MENU DATA ====================
 const menuData = [
-  
-  { id: 4, name: "Fried Plantain & Egg Sauce", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://img-global.cpcdn.com/recipes/ea1c23f5fdce607f/1200x630cq80/photo.jpg" },
-  { id: 4, name: "Ewa Agoyin", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.V13P9WDCkhnmfoqn4zm9cwHaEK?w=308&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
-  { id: 4, name: "Yam Porridge", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.LgsZXSamEHD07RIPfCxaogHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
-  
-  { id: 5, name: "Fried Chicken", price: 500, category: "proteins", desc: "Crispy whole leg piece", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRve9xNxLt_ooPLxvHGSAqj2pVYy1fPRDDN2B7GnLdMRg&s=10" },
-  { id: 6, name: "Fried Turkey", price: 1000, category: "proteins", desc: "Juicy turkey fry", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR37RrTzRyUmi5yEzYxLC6fY6798N27rAUi7PrQTdpQmA&s=10" },
-  { id: 7, name: "Fried Beef", price: 500, category: "proteins", desc: "Spiced fried beef strips", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Fried_goat_meat.jpg" },
-  { id: 8, name: "Fried Goat Meat", price: 800, category: "proteins", desc: "Tender fried goat", img: "https://img-global.cpcdn.com/recipes/91ee0fbfc90cbdda/680x781cq80/roasted-goat-meat-recipe-main-photo.jpg" },
-  { id: 9, name: "Fried Fish", price: 300, category: "proteins", desc: "Whole tilapia fry", img: "https://www.mydiasporakitchen.com/wp-content/uploads/2018/03/fish-768x1024.jpg" },
-  { id: 10, name: "Goat Meat Asun", price: 1000, category: "proteins", desc: "Spicy roasted goat meat", img: "https://assets.ekotoken.ng/wp-content/uploads/sites/5/2022/11/04094423/asun-600x600-1.jpg" },
-  { id: 11, name: "Beef Asun", price: 800, category: "proteins", desc: "Peppered beef delicacy", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2lYFcRTuzOcAzrBKeLYqQru6NkprltX6XA&s" },
-  { id: 12, name: "Pepper Kpomo (Cow Skin)", price: 300, category: "proteins", desc: "Spicy cow skin", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK_htdxjLfVt3mgsaS_vbjxfAnxWNu_ItiNQ&s" },
-  { id: 13, name: "Egusi Soup with Beef", price: 1000, category: "soups", desc: "Melon seed soup + beef", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNIRCMv-hYR4UqQhWO_c7cKEfz_YkyFLZpqw&s" },
-  { id: 14, name: "Egusi Soup with Goat Meat", price: 1100, category: "soups", desc: "Rich egusi & goat meat", img: "https://kikifoodies.com/wp-content/uploads/2024/12/IMG_4537-1024x1024.jpeg" },
-  { id: 15, name: "Egusi Soup with Fish", price: 1100, category: "soups", desc: "Assorted meat egusi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6Jp7SiibJqfRTkQOw_yuIS_JSIdDvjGm8PQ&s" },
-  
-  { id: 22, name: "Efo Riro (Vegetable)", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdddqo1YIX3mfXKbZLntAH-UH5n-_fghDRJA&s" },
-  
-  { id: 27, name: "Pepper Soup", price: 1000, category: "soups", desc: "Hot pepper broth", img: "https://cheflolaskitchen.com/wp-content/uploads/2018/05/nigerian-goat-meat-pepper-soup-3-500x450.jpg" },
-  { id: 28, name: "Goat Meat Pepper Soup", price: 1000, category: "soups", desc: "Hearty goat pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
-  
-  { id: 30, name: "White Rice", price: 300, category: "rice", desc: "Steamed basmati", img: "https://cheflolaskitchen.com/wp-content/uploads/2025/07/How-to-Cook-Rice.jpg" },
-  { id: 31, name: "Jollof Rice", price: 600, category: "rice", desc: "Party jollof, smoky", img: "https://worldlytreat.com/wp-content/uploads/2023/09/smoky-Nigerian-jollof-rice-5-2.jpg" },
-  { id: 32, name: "Coconut Rice", price: 600, category: "rice", desc: "Creamy coconut aroma", img: "https://eatwellabi.com/wp-content/uploads/2022/01/Coconut-rice-8-720x480.jpg" },
-  { id: 33, name: "Native Rice (Ofada)", price: 600, category: "rice", desc: "Ofada rice + ayamase", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknkn602vtRHeBOWMcceBSQsb8-8g2olCNyw&s" },
-  { id: 34, name: "Fried Rice", price: 600, category: "rice", desc: "Mixed veg fried rice", img: "https://cheflolaskitchen.com/wp-content/uploads/2015/06/Fried-Rice-20.jpg.webp" },
-  { id: 35, name: "Jollof Spaghetti", price: 600, category: "rice", desc: "Jollof style pasta", img: "https://kikifoodies.com/wp-content/uploads/2024/12/ET5B8578-4.jpeg" },
-  { id: 36, name: "White Rice & Beans", price: 500, category: "rice", desc: "Rice & beans combo", img: "https://thumbs.dreamstime.com/b/rice-beans-pot-nigerian-food-cooked-brown-264701586.jpg" },
-  
-  { id: 37, name: "Beef Stew", price: 600, category: "stew", desc: "Rich tomato stew", img: "https://miro.medium.com/v2/resize:fit:1200/0*7L7KWsrPcRB7_DCJ" },
-  { id: 38, name: "Chicken Stew", price: 900, category: "stew", desc: "Chicken in stew", img: "https://lowcarbafrica.com/wp-content/uploads/2020/12/Nigerian-Chicken-Stew-IG-4.jpg" },
-  { id: 39, name: "Goat Meat Stew", price: 900, category: "stew", desc: "Tender goat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrj5YEnjdrO7wqRhV03jQwrqazRvo0uOy-1A&s" },
-  { id: 40, name: "Fish Stew", price: 800, category: "stew", desc: "Fish fillet stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKI6s0MMP5TyqYy6y7PzBJqE2zSDBM1Cr6Ew&s" },
-  { id: 41, name: "Assorted Stew", price: 800, category: "stew", desc: "Mixed meat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7R7Cjfm8Sr2eUfxomS6wxlr5Nl_6PMxlxQ&s" },
-  { id: 42, name: "Fufu", price: 600, category: "swallows", desc: "Smooth cassava fufu", img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Wrapped_fufu.jpg" },
-  { id: 43, name: "Pounded Yam", price: 800, category: "swallows", desc: "Yam poundo, premium", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpNgjJLktYgViycdbYIEDZUW23AK518rdBQ&s" },
-  { id: 44, name: "Eba", price: 400, category: "swallows", desc: "Garri eba", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA6mA6MVfDoyRx6_OMb6PATYx-QKqVmfAQWA&s" },
-  { id: 45, name: "Semo", price: 400, category: "swallows", desc: "Soft semolina", img: "https://i0.wp.com/dubawa.org/wp-content/uploads/2024/07/semovita.png?w=712&ssl=1" },
-  { id: 46, name: "Amala", price: 600, category: "swallows", desc: "Soft Amala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkUfgWw0jchWpd8kHw3c-Y4tgJiwpu7z618lAs0GtVVg&s=10" },
-  { id: 47, name: "Goat Leg Isi-Ewu", price: 1000, category: "sauce", desc: "Goat leg stew", img: "https://www.thepretendchef.com/wp-content/uploads/2016/05/homework-1-14.jpg.webp" },
-  { id: 48, name: "Cow Leg Nkwobi", price: 1000, category: "sauce", desc: "Cow leg special", img: "https://img-global.cpcdn.com/recipes/35e6e8a9b49f61b1/640x640sq80/photo.webp" },
-  { id: 49, name: "Ponmo Sauce", price: 300, category: "sauce", desc: "Cow skin sauce", img: "https://naijahome.food/wp-content/uploads/2025/09/Nigerian-Peppered-Kpomo-Sauce-Nigeria-Food-Buka-Stew-Nigeria-Soup-Calabar-Chef-Native-Soup-naija-home-food-Lagos-personal-chef-Ama-Cuisine-Ecstasy-Foods.jpg" },
-  { id: 50, name: "Pepper Chicken", price: 1000, category: "sauce", desc: "Peppered whole chicken", img: "https://thecravebowl.com/wp-content/uploads/2025/01/dexters_peppered-chicken.jpg" },
-  { id: 51, name: "Beef Sauce", price: 700, category: "sauce", desc: "Beef in rich sauce", img: "https://miro.medium.com/v2/resize:fit:640/format:webp/0*7L7KWsrPcRB7_DCJ" }
+  { id: 1, name: "Fried Plantain & Egg Sauce", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://img-global.cpcdn.com/recipes/ea1c23f5fdce607f/1200x630cq80/photo.jpg" },
+  { id: 2, name: "Ewa Agoyin", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.V13P9WDCkhnmfoqn4zm9cwHaEK?w=308&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+  { id: 3, name: "Yam Porridge", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.LgsZXSamEHD07RIPfCxaogHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+  { id: 4, name: "Moin Moin (Beans Cake)", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR8B0UtqpQWx5Y3x4MGZXwnAsSDlJfIKctK66CwC9HPA&s=10" },
+  { id: 5, name: "Pap and Akara", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRItJj5DL88oTbQc2IOvMFjXTZvkhWr4RtLaF9YbZaHQA&s=10" },
+  { id: 6, name: "Fried Chicken", price: 500, category: "proteins", desc: "Crispy whole leg piece", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRve9xNxLt_ooPLxvHGSAqj2pVYy1fPRDDN2B7GnLdMRg&s=10" },
+  { id: 7, name: "Fried Turkey", price: 1000, category: "proteins", desc: "Juicy turkey fry", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR37RrTzRyUmi5yEzYxLC6fY6798N27rAUi7PrQTdpQmA&s=10" },
+  { id: 8, name: "Fried Beef", price: 500, category: "proteins", desc: "Spiced fried beef strips", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Fried_goat_meat.jpg" },
+  { id: 9, name: "Fried Goat Meat", price: 800, category: "proteins", desc: "Tender fried goat", img: "https://img-global.cpcdn.com/recipes/91ee0fbfc90cbdda/680x781cq80/roasted-goat-meat-recipe-main-photo.jpg" },
+  { id: 10, name: "Fried Fish", price: 300, category: "proteins", desc: "Whole tilapia fry", img: "https://www.mydiasporakitchen.com/wp-content/uploads/2018/03/fish-768x1024.jpg" },
+  { id: 11, name: "Goat Meat Asun", price: 1000, category: "proteins", desc: "Spicy roasted goat meat", img: "https://assets.ekotoken.ng/wp-content/uploads/sites/5/2022/11/04094423/asun-600x600-1.jpg" },
+  { id: 12, name: "Beef Asun", price: 800, category: "proteins", desc: "Peppered beef delicacy", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2lYFcRTuzOcAzrBKeLYqQru6NkprltX6XA&s" },
+  { id: 13, name: "Pepper Kpomo", price: 300, category: "proteins", desc: "Spicy cow skin", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK_htdxjLfVt3mgsaS_vbjxfAnxWNu_ItiNQ&s" },
+  { id: 14, name: "Egusi Soup with Beef", price: 1000, category: "soups", desc: "Melon seed soup + beef", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNIRCMv-hYR4UqQhWO_c7cKEfz_YkyFLZpqw&s" },
+  { id: 15, name: "Egusi Soup with Goat Meat/Fish", price: 1100, category: "soups", desc: "Rich egusi & goat meat", img: "https://kikifoodies.com/wp-content/uploads/2024/12/IMG_4537-1024x1024.jpeg" },
+  { id: 16, name: "Efo Riro", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdddqo1YIX3mfXKbZLntAH-UH5n-_fghDRJA&s" },
+  { id: 17, name: "Ewedu & Gbegiri", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_cIRFlPWgC87CGC-I6-CND0NHUCJPqOhFfyXXjRT9XQ&s=10" },
+  { id: 18, name: "Ogbono Soup", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlLRo7KgFnWILSVhFnhmPtFjBpyjKYpIwE8Q5fphZjAw&s=10" },
+  { id: 19, name: "Okro Soup & Seafoood", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIARod4VDLPKW9pfIDVy1_DJP6Mcn3U7UpkTbMhe3Tvw&s=10" },
+  { id: 20, name: "Pepper Soup", price: 1000, category: "soups", desc: "Hot pepper broth", img: "https://cheflolaskitchen.com/wp-content/uploads/2018/05/nigerian-goat-meat-pepper-soup-3-500x450.jpg" },
+  { id: 21, name: "Goat Meat Pepper Soup", price: 1000, category: "soups", desc: "Hearty goat pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
+  { id: 22, name: "Catfish Pepper Soup", price: 1000, category: "soups", desc: "Hearty catfish pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
+  { id: 23, name: "Assorted Pepper Soup", price: 1000, category: "soups", desc: "Hearty goat pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
+  { id: 24, name: "White Rice", price: 300, category: "rice", desc: "Steamed basmati", img: "https://cheflolaskitchen.com/wp-content/uploads/2025/07/How-to-Cook-Rice.jpg" },
+  { id: 25, name: "Jollof Rice", price: 600, category: "rice", desc: "Party jollof, smoky", img: "https://worldlytreat.com/wp-content/uploads/2023/09/smoky-Nigerian-jollof-rice-5-2.jpg" },
+  { id: 26, name: "Coconut Rice", price: 600, category: "rice", desc: "Creamy coconut aroma", img: "https://eatwellabi.com/wp-content/uploads/2022/01/Coconut-rice-8-720x480.jpg" },
+  { id: 27, name: "Ofada", price: 600, category: "rice", desc: "Ofada rice + ayamase", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknkn602vtRHeBOWMcceBSQsb8-8g2olCNyw&s" },
+  { id: 28, name: "Fried Rice", price: 600, category: "rice", desc: "Mixed veg fried rice", img: "https://cheflolaskitchen.com/wp-content/uploads/2015/06/Fried-Rice-20.jpg.webp" },
+  { id: 29, name: "Jollof Spaghetti", price: 600, category: "rice", desc: "Jollof style pasta", img: "https://kikifoodies.com/wp-content/uploads/2024/12/ET5B8578-4.jpeg" },
+  { id: 30, name: "White Rice & Beans", price: 500, category: "rice", desc: "Rice & beans combo", img: "https://thumbs.dreamstime.com/b/rice-beans-pot-nigerian-food-cooked-brown-264701586.jpg" },
+  { id: 31, name: "Beef Stew", price: 600, category: "stew", desc: "Rich tomato stew", img: "https://miro.medium.com/v2/resize:fit:1200/0*7L7KWsrPcRB7_DCJ" },
+  { id: 32, name: "Chicken Stew", price: 900, category: "stew", desc: "Chicken in stew", img: "https://lowcarbafrica.com/wp-content/uploads/2020/12/Nigerian-Chicken-Stew-IG-4.jpg" },
+  { id: 33, name: "Goat Meat Stew", price: 900, category: "stew", desc: "Tender goat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrj5YEnjdrO7wqRhV03jQwrqazRvo0uOy-1A&s" },
+  { id: 34, name: "Fish Stew", price: 800, category: "stew", desc: "Fish fillet stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKI6s0MMP5TyqYy6y7PzBJqE2zSDBM1Cr6Ew&s" },
+  { id: 35, name: "Assorted Stew", price: 800, category: "stew", desc: "Mixed meat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7R7Cjfm8Sr2eUfxomS6wxlr5Nl_6PMxlxQ&s" },
+  { id: 36, name: "Fufu", price: 600, category: "swallows", desc: "Smooth cassava fufu", img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Wrapped_fufu.jpg" },
+  { id: 37, name: "Pounded Yam", price: 800, category: "swallows", desc: "Yam poundo, premium", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpNgjJLktYgViycdbYIEDZUW23AK518rdBQ&s" },
+  { id: 38, name: "Eba", price: 400, category: "swallows", desc: "Garri eba", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA6mA6MVfDoyRx6_OMb6PATYx-QKqVmfAQWA&s" },
+  { id: 39, name: "Semo", price: 400, category: "swallows", desc: "Soft semolina", img: "https://i0.wp.com/dubawa.org/wp-content/uploads/2024/07/semovita.png?w=712&ssl=1" },
+  { id: 40, name: "Amala", price: 600, category: "swallows", desc: "Soft Amala", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkUfgWw0jchWpd8kHw3c-Y4tgJiwpu7z618lAs0GtVVg&s=10" },
+  { id: 41, name: "Goat Leg Isi-Ewu", price: 1000, category: "stew", desc: "Goat leg stew", img: "https://www.thepretendchef.com/wp-content/uploads/2016/05/homework-1-14.jpg.webp" },
+  { id: 42, name: "Cow Leg Nkwobi", price: 1000, category: "stew", desc: "Cow leg special", img: "https://img-global.cpcdn.com/recipes/35e6e8a9b49f61b1/640x640sq80/photo.webp" },
+  { id: 43, name: "Ponmo Sauce", price: 300, category: "stew", desc: "Cow skin sauce", img: "https://naijahome.food/wp-content/uploads/2025/09/Nigerian-Peppered-Kpomo-Sauce-Nigeria-Food-Buka-Stew-Nigeria-Soup-Calabar-Chef-Native-Soup-naija-home-food-Lagos-personal-chef-Ama-Cuisine-Ecstasy-Foods.jpg" },
+  { id: 44, name: "Pepper Chicken", price: 1000, category: "stew", desc: "Peppered whole chicken", img: "https://thecravebowl.com/wp-content/uploads/2025/01/dexters_peppered-chicken.jpg" },
+  { id: 45, name: "Beef Sauce", price: 700, category: "stew", desc: "Beef in rich sauce", img: "https://miro.medium.com/v2/resize:fit:640/format:webp/0*7L7KWsrPcRB7_DCJ" }
 ];
 
 let cart = [];
@@ -431,23 +368,21 @@ const ITEMS_PER_PAGE = 12;
 let currentPage = 1;
 let totalPages = 1;
 const PHONE = "254742403806";
-const ADDRESS = "Nairobi, Kenya, Nairobi";
+const ADDRESS = "Nairobi, Kenya";
 let currentProofBase64 = null;
 
-// ==================== SOCIAL MEDIA SHARE FUNCTIONS ====================
+// Share
 function shareToWhatsApp(itemId) {
   const item = menuData.find(i => i.id === itemId);
   if (!item) return;
-  
-  const text = encodeURIComponent(`🍛 Check out this amazing dish at Princess Kitchen!\n\n${item.name}\n${item.desc}\n\n📍 Nairobi, Kenya, Nairobi\n📞 Order: +254742403806`);
+  const text = encodeURIComponent(`🍛 Check out ${item.name} at Princess Kitchen!\n📍 ${ADDRESS}\n📞 +254742403806`);
   window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
-// Core functions
+// Render
 function renderMenu(page = 1) {
   const grid = document.getElementById("menuGrid");
   const filtered = activeCategory === "all" ? menuData : menuData.filter(item => item.category === activeCategory);
-  
   totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
@@ -461,44 +396,35 @@ function renderMenu(page = 1) {
         <div class="item-desc">${item.desc}</div>
         <button class="add-btn" data-id="${item.id}"><i class="fas fa-plus-circle"></i> Add to Cart</button>
         <div class="share-buttons">
-          <button class="share-btn share-wa" onclick="shareToWhatsApp(${item.id})" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
+          <button class="share-btn share-wa" onclick="shareToWhatsApp(${item.id})"><i class="fab fa-whatsapp"></i></button>
         </div>
       </div>
     </div>
   `).join('');
-  
   document.querySelectorAll('.add-btn').forEach(btn => btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id))));
-  
   renderPagination(page);
 }
 
 function renderPagination(current) {
   const pagination = document.getElementById("pagination");
-  if (totalPages <= 1) {
-    pagination.innerHTML = '';
-    return;
-  }
-
-  let html = '';
-  html += `<button class="page-btn" onclick="changePage(${current - 1})" ${current === 1 ? 'disabled' : ''}>← Previous</button>`;
-  
-  for (let i = 1; i <= totalPages; i++) {
-    if (i === 1 || i === totalPages || (i >= current - 1 && i <= current + 1)) {
-      html += `<button class="page-btn ${i === current ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
-    } else if (i === current - 2 || i === current + 2) {
-      html += `<span class="page-info">...</span>`;
+  if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+  let html = `<button class="page-btn" onclick="changePage(${current-1})" ${current===1?'disabled':''}>←</button>`;
+  for (let i=1; i<=totalPages; i++) {
+    if (i===1 || i===totalPages || (i>=current-1 && i<=current+1)) {
+      html += `<button class="page-btn ${i===current?'active':''}" onclick="changePage(${i})">${i}</button>`;
+    } else if (i===current-2 || i===current+2) {
+      html += `<span class="page-info">…</span>`;
     }
   }
-  
-  html += `<button class="page-btn" onclick="changePage(${current + 1})" ${current === totalPages ? 'disabled' : ''}>Next →</button>`;
+  html += `<button class="page-btn" onclick="changePage(${current+1})" ${current===totalPages?'disabled':''}>→</button>`;
   pagination.innerHTML = html;
 }
 
 function changePage(page) {
-  if (page < 1 || page > totalPages) return;
+  if (page<1 || page>totalPages) return;
   currentPage = page;
   renderMenu(page);
-  window.scrollTo({ top: document.getElementById('menuGrid').offsetTop - 100, behavior: 'smooth' });
+  document.getElementById('menuGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function addToCart(id) {
@@ -511,28 +437,23 @@ function addToCart(id) {
 }
 
 function updateCartUI() {
-  const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+  const totalItems = cart.reduce((s,i) => s + i.quantity, 0);
   document.getElementById("cartCount").innerText = totalItems;
   const cartList = document.getElementById("cartItemsList");
-  const total = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+  const total = cart.reduce((s,i) => s + (i.price * i.quantity), 0);
   document.getElementById("cartTotalAmount").innerHTML = `Total: ${total} Ksh`;
-  
   if (cart.length === 0) {
-    cartList.innerHTML = `<div class="empty-cart"><i class="fas fa-shopping-basket" style="font-size:3rem; color:#ddd; margin-bottom:12px;"></i><p style="color:#999;">Your cart is empty</p></div>`;
+    cartList.innerHTML = `<div class="empty-cart"><i class="fas fa-shopping-basket" style="font-size:2.5rem; color:#ddd;"></i><p style="color:#999;">Your cart is empty</p></div>`;
     return;
   }
-  
   cartList.innerHTML = cart.map(item => `
     <div class="cart-item">
-      <div style="flex:1;">
-        <div style="font-weight:700; font-size:0.95rem;">${item.name}</div>
-        <div style="font-size:0.85rem; color:#1a7a4c; font-weight:600;">Ksh ${item.price} each</div>
-      </div>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <button onclick="changeQty(${item.id}, -1)" style="background:#d4e8dc; border:none; width:28px; height:28px; border-radius:50%; cursor:pointer; font-weight:700;">−</button>
-        <span style="font-weight:700; min-width:20px; text-align:center;">${item.quantity}</span>
-        <button onclick="changeQty(${item.id}, 1)" style="background:#1a7a4c; color:white; border:none; width:28px; height:28px; border-radius:50%; cursor:pointer; font-weight:700;">+</button>
-        <button onclick="removeItem(${item.id})" style="background:none; border:none; color:#e74c3c; cursor:pointer; font-size:1.1rem; margin-left:4px;"><i class="fas fa-trash"></i></button>
+      <div style="flex:1;"><div style="font-weight:700; font-size:0.9rem;">${item.name}</div><div style="font-size:0.8rem; color:#1a7a4c;">Ksh ${item.price} each</div></div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button onclick="changeQty(${item.id}, -1)" style="background:#d4e8dc; border:none; width:26px; height:26px; border-radius:50%; cursor:pointer; font-weight:700;">−</button>
+        <span style="font-weight:700; min-width:18px; text-align:center;">${item.quantity}</span>
+        <button onclick="changeQty(${item.id}, 1)" style="background:#1a7a4c; color:white; border:none; width:26px; height:26px; border-radius:50%; cursor:pointer; font-weight:700;">+</button>
+        <button onclick="removeItem(${item.id})" style="background:none; border:none; color:#e74c3c; cursor:pointer; font-size:1rem;"><i class="fas fa-trash"></i></button>
       </div>
     </div>
   `).join('');
@@ -545,140 +466,70 @@ function changeQty(id, delta) {
   if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
   updateCartUI();
 }
-
-function removeItem(id) {
-  cart = cart.filter(i => i.id !== id);
-  updateCartUI();
-}
-function getCurrentTotal() { return cart.reduce((s, i) => s + (i.price * i.quantity), 0); }
+function removeItem(id) { cart = cart.filter(i => i.id !== id); updateCartUI(); }
+function getCurrentTotal() { return cart.reduce((s,i) => s + (i.price * i.quantity), 0); }
 
 function showThankYouModal() {
   if (cart.length === 0) return;
-  
   const total = getCurrentTotal();
-  
-  const orderSummary = document.getElementById("orderSummary");
-  orderSummary.innerHTML = `
+  document.getElementById("orderSummary").innerHTML = `
     <h4>Order Details</h4>
-    ${cart.map(item => `
-      <div class="order-item">
-        <span>${item.name} x${item.quantity}</span>
-        <span>Ksh ${item.price * item.quantity}</span>
-      </div>
-    `).join('')}
+    ${cart.map(item => `<div class="order-item"><span>${item.name} x${item.quantity}</span><span>Ksh ${item.price * item.quantity}</span></div>`).join('')}
     <div class="order-total">Total: Ksh ${total}</div>
   `;
-
   document.getElementById("thankYouModal").style.display = "flex";
 }
-
-function closeThankYouModal() {
-  document.getElementById("thankYouModal").style.display = "none";
-}
+function closeThankYouModal() { document.getElementById("thankYouModal").style.display = "none"; }
 
 function handleImageError(img, category) {
   const fallbacks = {
-    breakfast: 'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600',
-    proteins: 'https://images.pexels.com/photos/230490/pexels-photo-230490.jpeg?auto=compress&cs=tinysrgb&w=600',
-    soups: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600',
-    rice: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600',
+    breakfast: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8wQgUQTW5sjS6Zs9ocbMyKW_iypzsB6a2Q7-6bWzsw&s=10',
+    proteins: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNq2pBE2bHF2bqf5VpzC12BRVopurT8Zji22X3wtHqrw&s=10',
+    soups: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSBDXaUrG8Q_KYtHX6DcweGS_UoIAe1dr7F8CLIGVFEQ&s=10',
+    rice: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuijreDg_Rr4VbpBHtuHl9k2mAxkZsPTe7EFvv4Gzow&s=10',
     stew: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=600',
-    swallows: 'https://images.pexels.com/photos/3763849/pexels-photo-3763849.jpeg?auto=compress&cs=tinysrgb&w=600',
-    sauce: 'https://images.pexels.com/photos/5410400/pexels-photo-5410400.jpeg?auto=compress&cs=tinysrgb&w=600'
+    swallows: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-T5ZujLyJtUgVm94H2LfYxZ3ZTKO9gdxxPa1dz6uJzg&s=10'
   };
   img.src = fallbacks[category] || 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600';
 }
 
+// File upload
 function setupFileUpload(areaId, inputId, previewId) {
   const area = document.getElementById(areaId);
   const input = document.getElementById(inputId);
   const preview = document.getElementById(previewId);
-
   area.addEventListener('click', () => input.click());
-  
-  area.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    area.classList.add('dragover');
-  });
-  
-  area.addEventListener('dragleave', () => {
-    area.classList.remove('dragover');
-  });
-  
+  area.addEventListener('dragover', (e) => { e.preventDefault(); area.classList.add('dragover'); });
+  area.addEventListener('dragleave', () => { area.classList.remove('dragover'); });
   area.addEventListener('drop', (e) => {
-    e.preventDefault();
-    area.classList.remove('dragover');
+    e.preventDefault(); area.classList.remove('dragover');
     if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0], preview);
   });
-  
-  input.addEventListener('change', (e) => {
-    if (e.target.files[0]) handleFile(e.target.files[0], preview);
-  });
+  input.addEventListener('change', (e) => { if (e.target.files[0]) handleFile(e.target.files[0], preview); });
 }
 
 function handleFile(file, preview) {
   if (!file.type.startsWith('image/')) return alert("Please upload an image");
-  if (file.size > 5 * 1024 * 1024) return alert("File size must be less than 5MB");
+  if (file.size > 5*1024*1024) return alert("File size must be < 5MB");
   const reader = new FileReader();
   reader.onload = (e) => {
     currentProofBase64 = e.target.result;
-    preview.innerHTML = `<img src="${e.target.result}" class="uploaded-preview" style="max-height:180px;">`;
+    preview.innerHTML = `<img src="${e.target.result}" class="uploaded-preview">`;
   };
   reader.readAsDataURL(file);
 }
 
 function sendToWhatsApp() {
   if (cart.length === 0) return alert("Cart is empty!");
-
   const total = getCurrentTotal();
   const phone = document.getElementById("mpesaPhone").value.trim() || "254742403806";
-
-  let msg = `🍛 *Princess KITCHEN - PAYMENT CONFIRMATION*%0A%0A*Order Details:*%0A`;
+  let msg = `🍛 *Princess KITCHEN - PAYMENT*%0A%0A*Order:*%0A`;
   cart.forEach(item => msg += `• ${item.name} × ${item.quantity} = Ksh ${item.price*item.quantity}%0A`);
-  msg += `%0A*Total Amount:* Ksh ${total}%0A*Payment Method:* M-Pesa%0A`;
-  msg += `*Phone Number:* ${phone}%0A`;
-  msg += `%0A*Payment Proof:* See attached image below%0A%0APlease confirm receipt of payment. Thank you! 🙏`;
-
-  if (currentProofBase64 && navigator.share && navigator.canShare) {
-    fetch(currentProofBase64)
-      .then(res => res.blob())
-      .then(blob => {
-        const file = new File([blob], 'mpesa_receipt.jpg', { type: 'image/jpeg' });
-        const shareData = {
-          title: 'Princess Kitchen - Payment Proof',
-          text: `Payment confirmation for order totaling Ksh ${total}`,
-          files: [file]
-        };
-
-        if (navigator.canShare(shareData)) {
-          const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-          window.open(waUrl, "_blank");
-          
-          setTimeout(() => {
-            navigator.share(shareData).catch(err => console.log('Image share cancelled or failed:', err));
-          }, 500);
-        } else {
-          const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-          window.open(waUrl, "_blank");
-        }
-        
-        completeOrder();
-      })
-      .catch(() => {
-        const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, "_blank");
-        completeOrder();
-      });
-  } else {
-    const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-    window.open(waUrl, "_blank");
-    
-    if (currentProofBase64) {
-      showPaymentProofModal();
-    }
-    
-    completeOrder();
-  }
+  msg += `%0A*Total:* Ksh ${total}%0A*M-Pesa:* ${phone}%0A*Proof:* attached`;
+  const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+  window.open(waUrl, "_blank");
+  if (currentProofBase64) showPaymentProofModal();
+  completeOrder();
 }
 
 function completeOrder() {
@@ -690,78 +541,50 @@ function completeOrder() {
 
 function showPaymentProofModal() {
   const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:500;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:500;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px;';
   modal.innerHTML = `
-    <div style="background:white;border-radius:20px;padding:30px;max-width:600px;width:100%;text-align:center;max-height:90vh;overflow-y:auto;">
-      <h2 style="color:#1a7a4c;margin-bottom:15px;">📸 Payment Proof</h2>
-      <p style="color:#666;margin-bottom:20px;">Right-click the image below and select "Save" or "Download" to share it on WhatsApp</p>
-      <img src="${currentProofBase64}" style="max-width:100%;border-radius:12px;border:2px solid #a8d8bc;margin-bottom:20px;">
+    <div style="background:white;border-radius:20px;padding:24px;max-width:500px;width:100%;text-align:center;">
+      <h2 style="color:#1a7a4c;margin-bottom:12px;">📸 Payment Proof</h2>
+      <p style="color:#666;margin-bottom:16px;font-size:0.9rem;">Save & share on WhatsApp</p>
+      <img src="${currentProofBase64}" style="max-width:100%;border-radius:12px;border:2px solid #a8d8bc;margin-bottom:16px;">
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-        <button onclick="downloadImage()" style="background:#25D366;color:white;border:none;padding:14px 28px;border-radius:60px;font-weight:700;cursor:pointer;font-size:1rem;">
-          ⬇️ Download Image
-        </button>
-        <button onclick="this.closest('div').parentElement.remove()" style="background:#d4e8dc;color:#2d5a3a;border:none;padding:14px 28px;border-radius:60px;font-weight:700;cursor:pointer;font-size:1rem;">
-          Close
-        </button>
+        <button onclick="downloadImage()" style="background:#25D366;color:white;border:none;padding:12px 24px;border-radius:60px;font-weight:700;cursor:pointer;">⬇️ Download</button>
+        <button onclick="this.closest('div').parentElement.remove()" style="background:#d4e8dc;color:#2d5a3a;border:none;padding:12px 24px;border-radius:60px;font-weight:700;cursor:pointer;">Close</button>
       </div>
     </div>
   `;
   document.body.appendChild(modal);
-  
   window.currentProofForDownload = currentProofBase64;
 }
-
 function downloadImage() {
   if (!window.currentProofForDownload) return;
-  
   const link = document.createElement('a');
   link.href = window.currentProofForDownload;
   link.download = 'payment_proof.jpg';
   link.click();
 }
 
-// Initialize everything
+// DOM events
 document.getElementById("closeCartBtn").addEventListener("click", () => document.getElementById("cartOverlay").style.display = "none");
-
 document.getElementById("checkoutWhatsAppBtn").addEventListener("click", () => {
-  if (cart.length === 0) return alert("Your cart is empty!");
-  const msg = `🍛 *Princess KITCHEN*%0A📍 ${ADDRESS}%0A%0A*ORDER*%0A` + 
-              cart.map(i => `✓ ${i.name} x ${i.quantity} — ${i.price*i.quantity} Ksh`).join('%0A') +
-              `%0A%0A💰 *TOTAL: ${getCurrentTotal()} Ksh*`;
+  if (cart.length === 0) return alert("Cart is empty!");
+  const msg = `🍛 *Princess KITCHEN*%0A📍 ${ADDRESS}%0A%0A*ORDER*%0A` + cart.map(i => `✓ ${i.name} x ${i.quantity} — ${i.price*i.quantity} Ksh`).join('%0A') + `%0A%0A💰 *TOTAL: ${getCurrentTotal()} Ksh*`;
   window.open(`https://wa.me/${PHONE}?text=${msg}`, "_blank");
   showThankYouModal();
   cart = [];
   updateCartUI();
 });
-
 document.getElementById("payNowBtn").addEventListener("click", () => {
   if (cart.length === 0) return alert("Cart is empty!");
   document.getElementById("modalTotalAmount").textContent = getCurrentTotal();
   document.getElementById("paymentModal").style.display = "flex";
 });
-
 document.getElementById("closePaymentModal").addEventListener("click", () => document.getElementById("paymentModal").style.display = "none");
-
-document.getElementById("paymentModal").addEventListener("click", (e) => {
-  if (e.target === document.getElementById("paymentModal")) {
-    document.getElementById("paymentModal").style.display = "none";
-  }
-});
-
-document.getElementById("cartOverlay").addEventListener("click", (e) => {
-  if (e.target === document.getElementById("cartOverlay")) {
-    document.getElementById("cartOverlay").style.display = "none";
-  }
-});
-
-document.getElementById("cartIconBtn").addEventListener("click", () => {
-  document.getElementById("cartOverlay").style.display = "flex";
-});
-
+document.getElementById("paymentModal").addEventListener("click", (e) => { if (e.target === document.getElementById("paymentModal")) document.getElementById("paymentModal").style.display = "none"; });
+document.getElementById("cartOverlay").addEventListener("click", (e) => { if (e.target === document.getElementById("cartOverlay")) document.getElementById("cartOverlay").style.display = "none"; });
+document.getElementById("cartIconBtn").addEventListener("click", () => document.getElementById("cartOverlay").style.display = "flex");
 setupFileUpload("uploadAreaMpesa", "paymentProofMpesa", "previewMpesa");
-
-document.getElementById("sendMpesaToWhatsApp").addEventListener("click", () => sendToWhatsApp());
-
+document.getElementById("sendMpesaToWhatsApp").addEventListener("click", sendToWhatsApp);
 document.querySelectorAll(".cat-btn").forEach(btn => btn.addEventListener("click", () => {
   document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
   btn.classList.add("active");
@@ -770,112 +593,48 @@ document.querySelectorAll(".cat-btn").forEach(btn => btn.addEventListener("click
   renderMenu(1);
 }));
 
-// Menu Slideshow functionality
-let currentSlide = 0;
-let slideshowItems = [];
-let autoPlayInterval;
-let isAutoPlaying = true;
-
+// Slideshow
+let currentSlide = 0, slideshowItems = [], autoPlayInterval, isAutoPlaying = true;
 function initMenuSlideshow() {
   const shuffled = [...menuData].sort(() => Math.random() - 0.5);
   slideshowItems = shuffled.slice(0, 8);
-  
   updateSlideContent();
   startAutoPlay();
-  
-  document.getElementById('nextSlide').addEventListener('click', () => {
-    nextSlide();
-    resetAutoPlay();
-  });
-  
-  document.getElementById('prevSlide').addEventListener('click', () => {
-    prevSlide();
-    resetAutoPlay();
-  });
-  
+  document.getElementById('nextSlide').addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+  document.getElementById('prevSlide').addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
   document.getElementById('autoPlayBtn').addEventListener('click', toggleAutoPlay);
 }
-
 function updateSlideContent() {
   const slideContent = document.getElementById('menuSlideContent');
   if (!slideContent || slideshowItems.length === 0) return;
-  
   const startIndex = (currentSlide * 4) % slideshowItems.length;
   const items = [];
-  for (let i = 0; i < 4; i++) {
-    const idx = (startIndex + i) % slideshowItems.length;
-    items.push(slideshowItems[idx]);
-  }
-  
-  slideContent.innerHTML = `
-    <div class="menu-slide-content">
-      ${items.map(item => `
-        <div class="menu-slide-item">
-          <img src="${item.img}" alt="${item.name}" class="menu-slide-img" onerror="handleImageError(this, '${item.category}')">
-          <div class="menu-slide-info">
-            <div class="menu-slide-name">${item.name}</div>
-            <div class="menu-slide-desc">${item.desc}</div>
-            <button class="menu-slide-btn" onclick="addToCart(${item.id}); scrollToMenu();">
-              <i class="fas fa-plus-circle"></i> Add to Cart
-            </button>
-          </div>
-        </div>
-      `).join('')}
+  for (let i=0; i<4; i++) { const idx = (startIndex + i) % slideshowItems.length; items.push(slideshowItems[idx]); }
+  slideContent.innerHTML = `<div class="menu-slide-content">${items.map(item => `
+    <div class="menu-slide-item">
+      <img src="${item.img}" alt="${item.name}" class="menu-slide-img" onerror="handleImageError(this, '${item.category}')">
+      <div class="menu-slide-info">
+        <div class="menu-slide-name">${item.name}</div>
+        <div class="menu-slide-desc">${item.desc}</div>
+        <button class="menu-slide-btn" onclick="addToCart(${item.id}); document.getElementById('menuGrid').scrollIntoView({behavior:'smooth'})"><i class="fas fa-plus-circle"></i> Add</button>
+      </div>
     </div>
-  `;
+  `).join('')}</div>`;
 }
+function nextSlide() { currentSlide = (currentSlide + 1) % Math.ceil(slideshowItems.length / 4); updateSlideContent(); }
+function prevSlide() { currentSlide = (currentSlide - 1 + Math.ceil(slideshowItems.length / 4)) % Math.ceil(slideshowItems.length / 4); updateSlideContent(); }
+function startAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); autoPlayInterval = setInterval(nextSlide, 4000); isAutoPlaying = true; document.getElementById('autoPlayBtn').textContent = '⏸️'; }
+function stopAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); isAutoPlaying = false; document.getElementById('autoPlayBtn').textContent = '▶️'; }
+function toggleAutoPlay() { isAutoPlaying ? stopAutoPlay() : startAutoPlay(); }
+function resetAutoPlay() { if (isAutoPlaying) { stopAutoPlay(); startAutoPlay(); } }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % Math.ceil(slideshowItems.length / 4);
-  updateSlideContent();
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + Math.ceil(slideshowItems.length / 4)) % Math.ceil(slideshowItems.length / 4);
-  updateSlideContent();
-}
-
-function startAutoPlay() {
-  if (autoPlayInterval) clearInterval(autoPlayInterval);
-  autoPlayInterval = setInterval(nextSlide, 4000);
-  isAutoPlaying = true;
-  document.getElementById('autoPlayBtn').textContent = '⏸️';
-}
-
-function stopAutoPlay() {
-  if (autoPlayInterval) clearInterval(autoPlayInterval);
-  isAutoPlaying = false;
-  document.getElementById('autoPlayBtn').textContent = '▶️';
-}
-
-function toggleAutoPlay() {
-  if (isAutoPlaying) {
-    stopAutoPlay();
-  } else {
-    startAutoPlay();
-  }
-}
-
-function resetAutoPlay() {
-  if (isAutoPlaying) {
-    stopAutoPlay();
-    startAutoPlay();
-  }
-}
-
-function scrollToMenu() {
-  document.getElementById('menuGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
+// Init
 const loadingOverlay = document.getElementById("loadingOverlay");
 if (loadingOverlay) loadingOverlay.style.display = "flex";
-
 setTimeout(() => {
   renderMenu(currentPage);
   updateCartUI();
-  
   if (loadingOverlay) loadingOverlay.style.display = "none";
-  
   initMenuSlideshow();
 }, 300);
 </script>
