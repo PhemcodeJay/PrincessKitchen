@@ -40,12 +40,11 @@
     .menu-card:hover .menu-img { transform: scale(1.02); }
     .card-content { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; }
     .item-name { font-size: 1.1rem; font-weight: 800; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-    .item-price { color: #1a7a4c; font-weight: 800; font-size: 1rem; background: #e8f7ef; padding: 4px 10px; border-radius: 40px; }
+    .item-price { display: none; }  /* prices hidden */
     .item-desc { font-size: 0.75rem; color: #4a6b55; line-height: 1.4; }
     .add-btn { background: #e8f7ef; border: none; padding: 12px 0; border-radius: 44px; font-weight: 700; font-size: 0.85rem; color: #1a7a4c; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 6px; transition: 0.2s; }
     .add-btn:active { background: #c5e8d4; transform: scale(0.97); }
     
-    /* Share Buttons */
     .share-buttons { display: flex; gap: 6px; margin-top: 8px; justify-content: center; flex-wrap: wrap; }
     .share-btn { width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
     .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
@@ -60,7 +59,6 @@
     .carousel-btn { background: #1a7a4c; color: white; border: none; width: 48px; height: 48px; border-radius: 60px; font-size: 1.5rem; cursor: pointer; transition: 0.2s; box-shadow: 0 6px 14px rgba(26,122,76,0.25); }
     .carousel-btn:hover { background: #0d4d2e; transform: scale(1.05); }
     
-    /* Menu Slideshow */
     .menu-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease; display: none; align-items: center; justify-content: center; background: linear-gradient(135deg, #d8f0e2, #c5e8d4); }
     .menu-slide.active { opacity: 1; display: flex; }
     .menu-slide-content { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: stretch; padding: 16px; max-width: 1200px; }
@@ -68,7 +66,7 @@
     .menu-slide-img { width: 100%; height: 140px; object-fit: cover; display: block; }
     .menu-slide-info { padding: 12px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
     .menu-slide-name { font-size: 1rem; font-weight: 800; color: #0d4d2e; margin: 0; }
-    .menu-slide-price { font-size: 0.95rem; font-weight: 700; color: #1a7a4c; background: #e8f7ef; padding: 4px 12px; border-radius: 40px; display: inline-block; align-self: flex-start; }
+    .menu-slide-price { display: none; }  /* prices hidden */
     .menu-slide-desc { font-size: 0.8rem; color: #4a6b55; margin: 0; line-height: 1.3; flex: 1; }
     .menu-slide-btn { background: #1a7a4c; color: white; border: none; padding: 8px 16px; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.85rem; box-shadow: 0 3px 10px rgba(26,122,76,0.25); margin-top: auto; }
     .menu-slide-btn:hover { background: #0d4d2e; transform: scale(1.05); }
@@ -91,7 +89,6 @@
     .pay-now-btn { background: linear-gradient(135deg, #25D366, #1a7a4c); color: white; font-size: 1.05rem; }
     .close-cart { background: #d4e8dc; color: #2d5a3a; }
 
-    /* Payment Modal */
     .payment-modal {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
@@ -157,7 +154,6 @@
     .social-icons a { color: #1a7a4c; font-size: 1.5rem; transition: 0.2s; }
     .social-icons a:hover { color: #2d8a5a; transform: translateY(-3px); }
 
-    /* Thank You Modal */
     .thankyou-modal {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
@@ -189,7 +185,6 @@
       to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Pagination */
     .pagination {
       display: flex; justify-content: center; align-items: center;
       gap: 12px; margin: 32px 0 70px; flex-wrap: wrap;
@@ -218,11 +213,9 @@
       to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Loading Skeleton */
     .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
     @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
     
-    /* Loading Overlay */
     #loadingOverlay { display: none; }
   </style>
 </head>
@@ -383,10 +376,13 @@
 </div>
 
 <script>
-// ==================== MENU DATA ====================
+// ==================== MENU DATA (prices kept in data for logic but not displayed) ====================
 const menuData = [
   
   { id: 4, name: "Fried Plantain & Egg Sauce", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://img-global.cpcdn.com/recipes/ea1c23f5fdce607f/1200x630cq80/photo.jpg" },
+  { id: 4, name: "Ewa Agoyin", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.V13P9WDCkhnmfoqn4zm9cwHaEK?w=308&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+  { id: 4, name: "Yam Porridge", price: 500, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://th.bing.com/th/id/OIP.LgsZXSamEHD07RIPfCxaogHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+  
   { id: 5, name: "Fried Chicken", price: 500, category: "proteins", desc: "Crispy whole leg piece", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRve9xNxLt_ooPLxvHGSAqj2pVYy1fPRDDN2B7GnLdMRg&s=10" },
   { id: 6, name: "Fried Turkey", price: 1000, category: "proteins", desc: "Juicy turkey fry", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR37RrTzRyUmi5yEzYxLC6fY6798N27rAUi7PrQTdpQmA&s=10" },
   { id: 7, name: "Fried Beef", price: 500, category: "proteins", desc: "Spiced fried beef strips", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Fried_goat_meat.jpg" },
@@ -399,7 +395,7 @@ const menuData = [
   { id: 14, name: "Egusi Soup with Goat Meat", price: 1100, category: "soups", desc: "Rich egusi & goat meat", img: "https://kikifoodies.com/wp-content/uploads/2024/12/IMG_4537-1024x1024.jpeg" },
   { id: 15, name: "Egusi Soup with Fish", price: 1100, category: "soups", desc: "Assorted meat egusi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6Jp7SiibJqfRTkQOw_yuIS_JSIdDvjGm8PQ&s" },
   
-  { id: 22, name: "Efo Riro (Vegetable)", price: 500 - 1500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdddqo1YIX3mfXKbZLntAH-UH5n-_fghDRJA&s" },
+  { id: 22, name: "Efo Riro (Vegetable)", price: 500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdddqo1YIX3mfXKbZLntAH-UH5n-_fghDRJA&s" },
   
   { id: 27, name: "Pepper Soup", price: 1000, category: "soups", desc: "Hot pepper broth", img: "https://cheflolaskitchen.com/wp-content/uploads/2018/05/nigerian-goat-meat-pepper-soup-3-500x450.jpg" },
   { id: 28, name: "Goat Meat Pepper Soup", price: 1000, category: "soups", desc: "Hearty goat pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
@@ -443,7 +439,7 @@ function shareToWhatsApp(itemId) {
   const item = menuData.find(i => i.id === itemId);
   if (!item) return;
   
-  const text = encodeURIComponent(`🍛 Check out this amazing dish at Princess Kitchen!\n\n${item.name}\nPrice: Ksh ${item.price}\n${item.desc}\n\n📍 Nairobi, Kenya, Nairobi\n📞 Order: +254742403806`);
+  const text = encodeURIComponent(`🍛 Check out this amazing dish at Princess Kitchen!\n\n${item.name}\n${item.desc}\n\n📍 Nairobi, Kenya, Nairobi\n📞 Order: +254742403806`);
   window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
@@ -461,7 +457,7 @@ function renderMenu(page = 1) {
     <div class="menu-card">
       <img class="menu-img" src="${item.img}" alt="${item.name}" data-category="${item.category}" onerror="handleImageError(this, '${item.category}')">
       <div class="card-content">
-        <div class="item-name"><span>${item.name}</span><span class="item-price">${item.price} Ksh</span></div>
+        <div class="item-name"><span>${item.name}</span></div>
         <div class="item-desc">${item.desc}</div>
         <button class="add-btn" data-id="${item.id}"><i class="fas fa-plus-circle"></i> Add to Cart</button>
         <div class="share-buttons">
@@ -580,7 +576,6 @@ function closeThankYouModal() {
   document.getElementById("thankYouModal").style.display = "none";
 }
 
-// Image error handler
 function handleImageError(img, category) {
   const fallbacks = {
     breakfast: 'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -594,7 +589,6 @@ function handleImageError(img, category) {
   img.src = fallbacks[category] || 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600';
 }
 
-// File upload setup with drag & drop
 function setupFileUpload(areaId, inputId, previewId) {
   const area = document.getElementById(areaId);
   const input = document.getElementById(inputId);
@@ -633,7 +627,6 @@ function handleFile(file, preview) {
   reader.readAsDataURL(file);
 }
 
-// Send to WhatsApp
 function sendToWhatsApp() {
   if (cart.length === 0) return alert("Cart is empty!");
 
@@ -784,9 +777,8 @@ let autoPlayInterval;
 let isAutoPlaying = true;
 
 function initMenuSlideshow() {
-  // Get random menu items for slideshow
   const shuffled = [...menuData].sort(() => Math.random() - 0.5);
-  slideshowItems = shuffled.slice(0, 8); // Use 8 random items (shown as 4 per slide)
+  slideshowItems = shuffled.slice(0, 8);
   
   updateSlideContent();
   startAutoPlay();
@@ -808,7 +800,6 @@ function updateSlideContent() {
   const slideContent = document.getElementById('menuSlideContent');
   if (!slideContent || slideshowItems.length === 0) return;
   
-  // Show 4 items per slide (items 0-3, 4-7)
   const startIndex = (currentSlide * 4) % slideshowItems.length;
   const items = [];
   for (let i = 0; i < 4; i++) {
@@ -823,7 +814,6 @@ function updateSlideContent() {
           <img src="${item.img}" alt="${item.name}" class="menu-slide-img" onerror="handleImageError(this, '${item.category}')">
           <div class="menu-slide-info">
             <div class="menu-slide-name">${item.name}</div>
-            <div class="menu-slide-price">Ksh ${item.price}</div>
             <div class="menu-slide-desc">${item.desc}</div>
             <button class="menu-slide-btn" onclick="addToCart(${item.id}); scrollToMenu();">
               <i class="fas fa-plus-circle"></i> Add to Cart
@@ -847,7 +837,7 @@ function prevSlide() {
 
 function startAutoPlay() {
   if (autoPlayInterval) clearInterval(autoPlayInterval);
-  autoPlayInterval = setInterval(nextSlide, 4000); // Change every 4 seconds
+  autoPlayInterval = setInterval(nextSlide, 4000);
   isAutoPlaying = true;
   document.getElementById('autoPlayBtn').textContent = '⏸️';
 }
@@ -886,7 +876,6 @@ setTimeout(() => {
   
   if (loadingOverlay) loadingOverlay.style.display = "none";
   
-  // Initialize menu slideshow
   initMenuSlideshow();
 }, 300);
 </script>
