@@ -198,7 +198,7 @@
 
 <main class="container">
   <div class="hero">
-    <img src="https://instagram.fnbo18-1.fna.fbcdn.net/v/t51.82787-19/523426738_17898519147249668_621232629872776436_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby42NTAuYzIifQ&_nc_ht=instagram.fnbo18-1.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2gGKG8jyQWXah4tv70LWr6W7lMSav9FyXKrZQiGKJ4OBqOotrpfdSvqblBiFq0ReQIs&_nc_ohc=NJZdZTKlNBEQ7kNvwFno5uv&_nc_gid=vDqxj014Q3XjPcC22uafKg&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AQF6JzRRo0H9tJNdptChMQNeX8TQ2sF0Cn1E1EhsKav5xg&oe=6A7F8B1D&_nc_sid=7a9f4b" alt="Princess Kitchen Logo" style="max-width:120px; height:auto; border-radius:50%; margin-bottom:12px; border:3px solid #1a7a4c;">
+    <img src="princess-logo.jpeg" alt="Princess Kitchen Logo" style="max-width:140px; height:auto; border-radius:50%; margin-bottom:12px; border:3px solid #1a7a4c; box-shadow:0 8px 24px rgba(0,0,0,0.1);">
     <h2>🔥 Premium Nigerian Meals 🔥</h2>
     <div class="address-badge"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
     <div class="address-badge" style="margin-top:6px;"><i class="fas fa-phone-alt"></i> +254742403806</div>
@@ -387,9 +387,7 @@ function shareToWhatsApp(itemId) {
 }
 
 function shareToInstagram(itemId) {
-  const item = menuData.find(i => i.id === itemId);
-  if (!item) return;
-  // Open Instagram profile directly (or share intent if possible)
+  // Open Instagram profile directly
   window.open(INSTA_URL, '_blank');
 }
 
