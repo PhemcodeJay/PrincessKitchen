@@ -53,6 +53,7 @@
     .share-btn { width: 30px; height: 30px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
     .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     .share-wa { background: #25D366; }
+    .share-ig { background: radial-gradient(circle at 30% 30%, #fdf497, #fd5949, #d6249f, #285aeb); }
 
     /* featured dishes slider */
     .videos-section { background: white; border-radius: 28px; padding: 24px 16px; margin: 24px 0 40px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
@@ -118,6 +119,7 @@
     .floating-socials { position: fixed; bottom: 20px; right: 16px; display: flex; flex-direction: column; gap: 12px; z-index: 150; }
     .floating-socials a { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white; text-decoration: none; transition: all 0.25s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
     .float-wa { background: #25D366; }
+    .float-ig { background: radial-gradient(circle at 30% 30%, #fdf497, #fd5949, #d6249f, #285aeb); }
 
     /* contact strip */
     .contact-strip { background: #0d2e1a; color: #c5e8d4; padding: 20px 16px; text-align: center; border-radius: 28px 28px 0 0; font-size: 0.85rem; }
@@ -182,6 +184,7 @@
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
         <div class="social-icons">
           <a href="https://wa.me/254742403806" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/princesskitchen123/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="cart-icon" id="cartIconBtn">
           <i class="fas fa-shopping-basket"></i>
@@ -195,6 +198,7 @@
 
 <main class="container">
   <div class="hero">
+    <img src="https://instagram.fnbo18-1.fna.fbcdn.net/v/t51.82787-19/523426738_17898519147249668_621232629872776436_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby42NTAuYzIifQ&_nc_ht=instagram.fnbo18-1.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2gGKG8jyQWXah4tv70LWr6W7lMSav9FyXKrZQiGKJ4OBqOotrpfdSvqblBiFq0ReQIs&_nc_ohc=NJZdZTKlNBEQ7kNvwFno5uv&_nc_gid=vDqxj014Q3XjPcC22uafKg&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AQF6JzRRo0H9tJNdptChMQNeX8TQ2sF0Cn1E1EhsKav5xg&oe=6A7F8B1D&_nc_sid=7a9f4b" alt="Princess Kitchen Logo" style="max-width:120px; height:auto; border-radius:50%; margin-bottom:12px; border:3px solid #1a7a4c;">
     <h2>🔥 Premium Nigerian Meals 🔥</h2>
     <div class="address-badge"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
     <div class="address-badge" style="margin-top:6px;"><i class="fas fa-phone-alt"></i> +254742403806</div>
@@ -238,6 +242,7 @@
   <p><i class="fab fa-whatsapp"></i> Order: +254742403806 &nbsp;|&nbsp; <i class="fas fa-clock"></i> 24hrs</p>
   <div class="social-icons" style="margin-top:12px;">
     <a href="https://wa.me/254742403806" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/princesskitchen123/" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 </div>
 
@@ -249,6 +254,7 @@
 <!-- FLOATING SOCIAL -->
 <div class="floating-socials">
   <a href="https://wa.me/254742403806" class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://www.instagram.com/princesskitchen123/" class="float-ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 </div>
 
 <!-- CART OVERLAY -->
@@ -369,14 +375,22 @@ let currentPage = 1;
 let totalPages = 1;
 const PHONE = "254742403806";
 const ADDRESS = "Nairobi, Kenya";
+const INSTA_URL = "https://www.instagram.com/princesskitchen123/";
 let currentProofBase64 = null;
 
 // Share
 function shareToWhatsApp(itemId) {
   const item = menuData.find(i => i.id === itemId);
   if (!item) return;
-  const text = encodeURIComponent(`🍛 Check out ${item.name} at Princess Kitchen!\n📍 ${ADDRESS}\n📞 +254742403806`);
+  const text = encodeURIComponent(`🍛 Check out ${item.name} at Princess Kitchen!\n📍 ${ADDRESS}\n📞 +254742403806\n📸 ${INSTA_URL}`);
   window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+function shareToInstagram(itemId) {
+  const item = menuData.find(i => i.id === itemId);
+  if (!item) return;
+  // Open Instagram profile directly (or share intent if possible)
+  window.open(INSTA_URL, '_blank');
 }
 
 // Render
@@ -396,7 +410,8 @@ function renderMenu(page = 1) {
         <div class="item-desc">${item.desc}</div>
         <button class="add-btn" data-id="${item.id}"><i class="fas fa-plus-circle"></i> Add to Cart</button>
         <div class="share-buttons">
-          <button class="share-btn share-wa" onclick="shareToWhatsApp(${item.id})"><i class="fab fa-whatsapp"></i></button>
+          <button class="share-btn share-wa" onclick="shareToWhatsApp(${item.id})" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
+          <button class="share-btn share-ig" onclick="shareToInstagram(${item.id})" title="Share on Instagram"><i class="fab fa-instagram"></i></button>
         </div>
       </div>
     </div>
@@ -525,7 +540,7 @@ function sendToWhatsApp() {
   const phone = document.getElementById("mpesaPhone").value.trim() || "254742403806";
   let msg = `🍛 *Princess KITCHEN - PAYMENT*%0A%0A*Order:*%0A`;
   cart.forEach(item => msg += `• ${item.name} × ${item.quantity} = Ksh ${item.price*item.quantity}%0A`);
-  msg += `%0A*Total:* Ksh ${total}%0A*M-Pesa:* ${phone}%0A*Proof:* attached`;
+  msg += `%0A*Total:* Ksh ${total}%0A*M-Pesa:* ${phone}%0A*Proof:* attached%0A📸 Instagram: ${INSTA_URL}`;
   const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
   window.open(waUrl, "_blank");
   if (currentProofBase64) showPaymentProofModal();
@@ -568,7 +583,7 @@ function downloadImage() {
 document.getElementById("closeCartBtn").addEventListener("click", () => document.getElementById("cartOverlay").style.display = "none");
 document.getElementById("checkoutWhatsAppBtn").addEventListener("click", () => {
   if (cart.length === 0) return alert("Cart is empty!");
-  const msg = `🍛 *Princess KITCHEN*%0A📍 ${ADDRESS}%0A%0A*ORDER*%0A` + cart.map(i => `✓ ${i.name} x ${i.quantity} — ${i.price*i.quantity} Ksh`).join('%0A') + `%0A%0A💰 *TOTAL: ${getCurrentTotal()} Ksh*`;
+  const msg = `🍛 *Princess KITCHEN*%0A📍 ${ADDRESS}%0A%0A*ORDER*%0A` + cart.map(i => `✓ ${i.name} x ${i.quantity} — ${i.price*i.quantity} Ksh`).join('%0A') + `%0A%0A💰 *TOTAL: ${getCurrentTotal()} Ksh*%0A📸 ${INSTA_URL}`;
   window.open(`https://wa.me/${PHONE}?text=${msg}`, "_blank");
   showThankYouModal();
   cart = [];
